@@ -1,9 +1,10 @@
 import { FaRegUserCircle } from "react-icons/fa";
+import MessagesSidebar from "../MessagesSidebar/MessagesSidebar";
 
 const MainLayout = () => {
   return (
-    <div>
-      <nav className="fixed top-0 z-50 w-full bg-red-400 border-b border-red-400 dark:bg-red-400 ">
+    <div className="grid grid-rows-[4rem_1fr] grid-cols-[16rem_1fr] h-screen">
+      <nav className="row-span-1 col-span-2 bg-red-400 border-b border-red-400">
         <div className="px-3 py-3 lg:px-5 lg:pl-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-start rtl:justify-end">
@@ -42,63 +43,6 @@ const MainLayout = () => {
                   height={28}
                   width={28}
                 />
-                <div
-                  className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-sm shadow-sm dark:bg-gray-700 dark:divide-gray-600"
-                  id="dropdown-user"
-                >
-                  <div className="px-4 py-3" role="none">
-                    <p
-                      className="text-sm text-gray-900 dark:text-white"
-                      role="none"
-                    >
-                      Neil Sims
-                    </p>
-                    <p
-                      className="text-sm font-medium text-gray-900 truncate dark:text-gray-300"
-                      role="none"
-                    >
-                      neil.sims@flowbite.com
-                    </p>
-                  </div>
-                  <ul className="py-1" role="none">
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                        role="menuitem"
-                      >
-                        Dashboard
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                        role="menuitem"
-                      >
-                        Settings
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                        role="menuitem"
-                      >
-                        Earnings
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                        role="menuitem"
-                      >
-                        Sign out
-                      </a>
-                    </li>
-                  </ul>
-                </div>
               </div>
             </div>
           </div>
@@ -107,56 +51,19 @@ const MainLayout = () => {
 
       <aside
         id="logo-sidebar"
-        className="fixed top-0 left-0 z-40 w-64 h-screen bg-white border border-red-400 transition-transform -translate-x-full sm:translate-x-0"
+        className="row-span-1 col-span-1 bg-white border-r border-red-400 overflow-y-auto"
         aria-label="Sidebar"
       >
-        <div className="h-full px-3 py-4 overflow-y-auto">
-          <ul className="space-y-2 font-medium">
-            <li>
-              <a
-                href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100"
-              >
-                <span className="ml-3">Dashboard</span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100"
-              >
-                <span className="ml-3">Messages</span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100"
-              >
-                <span className="ml-3">Settings</span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100"
-              >
-                <span className="ml-3">Profile</span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100"
-              >
-                <span className="ml-3">Logout</span>
-              </a>
-            </li>
-          </ul>
+        <div className="h-full overflow-y-auto">
+          <MessagesSidebar
+            onSelect={(msg) => {
+              console.log("Selected:", msg);
+            }}
+          />
         </div>
       </aside>
 
-      <div className="p-4 sm:ml-64"></div>
+      <main className="row-span-1 col-span-1 p-4">your content</main>
     </div>
   );
 };
